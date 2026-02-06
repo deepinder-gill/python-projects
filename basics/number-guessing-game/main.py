@@ -1,10 +1,8 @@
 import random
 
-random_number = random.randint(1,100)
-
 def too_high():
   print("too high!")
-
+  
 def too_low():
   print("too low!")
 
@@ -24,16 +22,15 @@ def user_guess():
 
    
 def main():
+
+  random_number = random.randint(1,100)
   while True:
-    
     guess = user_guess()
     if random_number == guess:
       congo()
       break
-
     elif random_number > guess:
       too_low()
-    
     elif random_number < guess:
       too_high()
           
