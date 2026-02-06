@@ -16,26 +16,27 @@ def again():
     else:
       print("Invalid Choice, please choose again")
 
+def match_result(user_choice, computers_choice):
+  if user_choice == computers_choice :
+      print("its a tie😱")
+  elif (user_choice == "r" and computers_choice == "p") or (user_choice == "p" and computers_choice == "s") or(user_choice == "s" and computers_choice == "r"): 
+       print("YOU LOST!😔😔")
+  else:
+      print("YOU WON !! 🎉🎉")
+
 def main():
   while True:
     choices = ("r", "p", "s")
     computers_choice = random.choice(choices)
     user_choice = ask_user()
-    
     emojis = {
       "r" : "🪨",
       "p" : "📃",
-      "s" : "✂️" 
-      }
+      "s" : "✂️"  }
     
     print(f"you chose:{emojis[user_choice]}\ncomputer chose:{emojis[computers_choice]}")
 
-    if user_choice == computers_choice :
-      print("its a tie😱")
-    elif (user_choice == "r" and computers_choice == "p") or (user_choice == "p" and computers_choice == "s") or(user_choice == "s" and computers_choice == "r"): 
-       print("YOU LOST!😔😔")
-    else:
-      print("YOU WON !! 🎉🎉")
+    match_result(user_choice, computers_choice)
 
     stop_game = again()
     if stop_game == "n":
