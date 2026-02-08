@@ -28,9 +28,13 @@ The project was created to practice working with files, JSON data, input validat
 - Duplicate names are not allowed
 - Menu-driven CLI interface
 
+## Testing
+The project was manually tested by running all menu options and validating edge cases such as duplicate entries and invalid inputs.
+
 ## Note
 This project is intentionally kept simple and focused on logic rather than advanced UI or frameworks.  
 Some edge cases and output formatting can be improved in future versions.
 
 ## Purpose
 This project was built as a learning exercise to strengthen Python fundamentals and understand how real applications manage and store data.
+
