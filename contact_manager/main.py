@@ -67,9 +67,12 @@ def add_contacts() :
   save_contact(new_contact)
 
 def view_contacts() :
-  with open("contacts.json", "r") as logbook:
-    read_logbook = json.load(logbook)
-    print(read_logbook)
+  try:
+    with open("contacts.json", "r") as logbook:
+      read_logbook = json.load(logbook)
+      print(read_logbook)
+  except (FileNotFoundError, json.JSONDecodeError):
+    print("NO CONTACTS IN FOLDER")
 
 def search_contact() :
   try:
@@ -114,7 +117,7 @@ def delete(new_logbook, i):
 
 def delete_contact() :
   try:
-    delete_account = input("Enter the account you want to delete:")
+    delete_account = input("Enter the account you want to delete:").lower()
     with open("contacts.json", "r") as logbook:
       new_logbook = json.load(logbook)
     for i, info in enumerate(new_logbook):
@@ -125,8 +128,7 @@ def delete_contact() :
     print("No contact found to be deleted")
 
 def _exit():
-  while True:
-    user_choice = print("WNAT TO DO SOMETHING MORE?! [y/n]").lower
+    user_choice = input("WNAT TO DO SOMETHING MORE?! [y/n]").lower().strip()
     if user_choice in ("y", "n"):
       return user_choice
     else:
@@ -154,6 +156,9 @@ def main():
     _continue = _exit()
     if _continue == "n" :
       print("OKAY, HAVE GREAT DAY!")
+      break
+    else:
+      continue
 
 if __name__ == "__main__":
   main()
