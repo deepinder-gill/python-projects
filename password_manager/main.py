@@ -1,4 +1,5 @@
 from cryptography.fernet import Fernet 
+
 #key = Fernet.generate_key()
 #with open ("mykey.key", "wb") as secret_key:
 #  secret_key.write(key)
@@ -18,8 +19,8 @@ def ask():
 
 def add():
   unlocking_key = load_key()
-  username = input("enter username or website: ")
-  password = input(f"enter password for {username}:")
+  username = input("enter username or website: ").strip()
+  password = input(f"enter password for {username}:").strip()
   encrypted_password = unlocking_key.encrypt(password.encode())
   with open("PASSWORDS.txt", "a") as add_data:
     add_data.write(f"{username} | {encrypted_password.decode()}\n")
